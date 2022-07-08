@@ -35,6 +35,7 @@ jobs:
           FRONTEND_IMAGE_URI=${AWS_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/frontend
 
           docker build \
+            --build-arg SOURCE_TAG=$SOURCE_TAG \
             -t $FRONTEND_IMAGE_URI:$SOURCE_TAG \
             -f nginx/ecs/Dockerfile \
             .
