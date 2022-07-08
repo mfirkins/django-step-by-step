@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-import 'source-map-support/register';
-import * as cdk from '@aws-cdk/core';
-import { DockerEc2Stack } from '../lib/docker-ec2-stack';
+import "source-map-support/register";
+import * as cdk from "@aws-cdk/core";
+import { DockerEc2Stack } from "../lib/docker-ec2-stack";
 
 const env = {
-  region: process.env.AWS_DEFAULT_REGION || 'us-east-1',
+  region: process.env.AWS_DEFAULT_REGION || "eu-west-2",
   account: process.env.AWS_ACCOUNT_ID,
 };
 
-const stackName = process.env.STACK_NAME || 'DockerEc2Stack';
+const stackName = process.env.STACK_NAME || "DockerEc2Stack";
 
 const app = new cdk.App();
 new DockerEc2Stack(app, stackName, {
@@ -22,7 +22,7 @@ new DockerEc2Stack(app, stackName, {
 
   /* Uncomment the next line if you know exactly what Account and Region you
    * want to deploy the stack to. */
-  // env: { account: '123456789012', region: 'us-east-1' },
+  // env: { account: '123456789012', region: 'eu-west-2' },
   env,
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */

@@ -4,7 +4,7 @@ name: build, test, push images and docker stack deploy to docker swarm
 on:
   push:
     tags:
-      - 'cdk/v*'
+      - "cdk/v*"
 
 jobs:
   deploy:
@@ -18,7 +18,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -44,7 +43,7 @@ jobs:
         if: steps.cfn_stack_check.outputs.RUN_CDK_DEPLOY == 'true'
         uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
+          node-version: "14.x"
 
       - name: Install CDK
         if: steps.cfn_stack_check.outputs.RUN_CDK_DEPLOY == 'true'
@@ -127,7 +126,7 @@ jobs:
 
           # login to ECR backend image repository
           aws ecr get-login-password \
-            --region us-east-1 \
+            --region eu-west-2 \
             | docker login \
             --username AWS \
             --password-stdin $BACKEND_IMAGE_URI
@@ -153,7 +152,7 @@ jobs:
 
           # login to ECR backend image repository
           aws ecr get-login-password \
-            --region us-east-1 \
+            --region eu-west-2 \
             | docker login \
             --username AWS \
             --password-stdin $FRONTEND_IMAGE_URI
@@ -182,14 +181,14 @@ jobs:
 
           # login to ECR backend image repository
           aws ecr get-login-password \
-            --region us-east-1 \
+            --region eu-west-2 \
             | docker login \
             --username AWS \
             --password-stdin $FRONTEND_IMAGE_URI
 
           # login to ECR backend image repository
           aws ecr get-login-password \
-            --region us-east-1 \
+            --region eu-west-2 \
             | docker login \
             --username AWS \
             --password-stdin $BACKEND_IMAGE_URI

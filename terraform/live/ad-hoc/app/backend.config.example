@@ -3,4 +3,4 @@
 
 bucket = "your-tf-bucket"
 key = "terraform-state"
-region = "us-east-1"
+region = "eu-west-2"

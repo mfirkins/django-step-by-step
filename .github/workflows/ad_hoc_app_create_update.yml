@@ -4,21 +4,20 @@ name: ad hoc | app | create / update
 on:
   workflow_dispatch:
     inputs:
-
       # The Terraform workspace for the shared resources Terraform configuration
       # that the ad hoc environment will use.
       # This input typically will not be used since all ad hoc environments should use one set of shared resources
       # This may be changed if major changes to the shared resources configuration are made to avoid disrupting existing ad hoc environments
       shared_resources_workspace:
-        description: 'Terraform workspace for shared resources env'
+        description: "Terraform workspace for shared resources env"
         required: true
-        default: 'dev'
+        default: "dev"
         type: string
 
       workspace:
-        description: 'Terraform workspace for the ad hoc env'
+        description: "Terraform workspace for the ad hoc env"
         required: true
-        default: 'dev'
+        default: "dev"
         type: string
 
 jobs:
@@ -101,8 +100,8 @@ jobs:
           TF_VAR_s3_bucket: ${{ secrets.TF_BACKEND_BUCKET }}
 
           # ECR variables
-          TF_VAR_ecr_be_repo_url: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend
-          TF_VAR_ecr_fe_repo_url: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend
+          TF_VAR_ecr_be_repo_url: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/backend
+          TF_VAR_ecr_fe_repo_url: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/frontend
 
           # Route 53 variables
           TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}

@@ -32,9 +32,9 @@ Here are some important points that will give some important context around CDK 
 - CDK is an AWS tool that allows you to write Infrastructure as Code
 - CDK generates CloudFormation (JSON/YAML that defines AWS resources at a low level)
 - CDK contains different levels of constructs that can be used to generate CloudFormation:
-    - L1 (Level 1) CDK constructs are a 1:1 mapping from CDK to CloudFormation resources. They are prefixed with `Cfn` (e.g. `s3.CfnBucket`)
-    - L2 CDK constructs are abstractions that generate several related CloudFormation resources that help support a single AWS resource or a group of related resource. For example, the L2 CDK construct for creating a VPC generates CloudFormation for a VPC, a subnet, and a NAT Gateway, routing tables and other related resources.
-    - L3 CDK constructs generate groups of resources. For example, the L3 CDK construct for creating a load-balanced web services generates CloudFormation for an ECS service, a load balancer and related target groups.
+  - L1 (Level 1) CDK constructs are a 1:1 mapping from CDK to CloudFormation resources. They are prefixed with `Cfn` (e.g. `s3.CfnBucket`)
+  - L2 CDK constructs are abstractions that generate several related CloudFormation resources that help support a single AWS resource or a group of related resource. For example, the L2 CDK construct for creating a VPC generates CloudFormation for a VPC, a subnet, and a NAT Gateway, routing tables and other related resources.
+  - L3 CDK constructs generate groups of resources. For example, the L3 CDK construct for creating a load-balanced web services generates CloudFormation for an ECS service, a load balancer and related target groups.
 
 The resources in `django-cdk` can be thought of as `L4` constructs. A single construct will contain all of the resources needed to create an application that has a number of different resources.
 
@@ -179,7 +179,7 @@ import * as cdk from "@aws-cdk/core";
 import { DjangoEks } from "./index";
 
 const env = {
-  region: process.env.AWS_DEFAULT_REGION || "us-east-1",
+  region: process.env.AWS_DEFAULT_REGION || "eu-west-2",
   account: process.env.AWS_ACCOUNT_ID,
 };
 

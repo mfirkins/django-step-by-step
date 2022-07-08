@@ -4,17 +4,16 @@ name: ad hoc | app | destroy
 on:
   workflow_dispatch:
     inputs:
-
       shared_resources_workspace:
-        description: 'Terraform workspace for shared resources env'
+        description: "Terraform workspace for shared resources env"
         required: true
-        default: 'dev'
+        default: "dev"
         type: string
 
       workspace:
-        description: 'Terraform workspace for ad hoc env to destroy'
+        description: "Terraform workspace for ad hoc env to destroy"
         required: true
-        default: 'dev'
+        default: "dev"
         type: string
 
 jobs:
@@ -24,7 +23,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.1.7
@@ -58,8 +56,8 @@ jobs:
           TF_VAR_s3_bucket: ${{ secrets.TF_BACKEND_BUCKET }}
 
           # ECR variables
-          TF_VAR_ecr_be_repo_url: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend
-          TF_VAR_ecr_fe_repo_url: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend
+          TF_VAR_ecr_be_repo_url: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/backend
+          TF_VAR_ecr_fe_repo_url: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/frontend
 
           # ACM variables
           TF_VAR_acm_certificate_arn: ${{ secrets.ACM_CERTIFICATE_ARN }}

@@ -16,7 +16,7 @@
 echo "Updating backend services..."
 
 # first define a variable containing the new image URI
-NEW_BACKEND_IMAGE_URI="$AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/backend:$BACKEND_IMAGE_TAG"
+NEW_BACKEND_IMAGE_URI="$AWS_ACCOUNT_ID.dkr.ecr.eu-west-2.amazonaws.com/backend:$BACKEND_IMAGE_TAG"
 
 
 # register new task definitions

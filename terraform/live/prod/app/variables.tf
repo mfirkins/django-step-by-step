@@ -15,7 +15,7 @@ variable "prod_base_env" {
 ##############################################################################
 
 variable "region" {
-  default = "us-east-1"
+  default = "eu-west-2"
 }
 
 variable "ecr_be_repo_url" {
