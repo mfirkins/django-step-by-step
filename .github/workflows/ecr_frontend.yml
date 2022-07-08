@@ -31,6 +31,9 @@ jobs:
           FRONTEND_IMAGE_URI: ${{ secrets.FRONTEND_IMAGE_URI }}
 
         run: |
+
+          FRONTEND_IMAGE_URI=${AWS_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/frontend
+
           docker build \
             -t $FRONTEND_IMAGE_URI:$SOURCE_TAG \
             -f nginx/ecs/Dockerfile \
