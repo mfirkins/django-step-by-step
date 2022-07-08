@@ -1,13 +1,6 @@
 name: ecr | frontend
 
-on:
-  workflow_dispatch:
-    inputs:
-      git_tag:
-        description: 'Git tag to deploy'
-        required: true
-        default: 'latest'
-        type: string
+on: push
 
 jobs:
   build_and_push:
@@ -16,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0

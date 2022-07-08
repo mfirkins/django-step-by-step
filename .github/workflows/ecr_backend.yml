@@ -1,9 +1,6 @@
 name: ecr | backend
 
-on:
-  push:
-    tags:
-      - "v*"
+on: push
 
 jobs:
   build_and_push:
